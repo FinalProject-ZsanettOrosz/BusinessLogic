@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonAnyFormatVisitor;
 public class Logic {
 
 	public String allGoals() throws ClientProtocolException, IOException {
-		String reqUrl = "http://10.218.223.84:5700/sdelab/goals/";
+		String reqUrl = "https://intense-mesa-6521.herokuapp.com/sdelab/goals/";// from SS
 		String result = RequesterClass.doGetRequest(reqUrl);
 
 		// System.out.println(result);
@@ -38,8 +38,8 @@ public class Logic {
 		// add then
 		// check if it meets the goal of that type
 		// return with bool
-		String reqUrl = "http://10.218.223.84:5700/sdelab/person/"
-				+ person;
+		String reqUrl = "https://intense-mesa-6521.herokuapp.com/sdelab/person/"
+				+ person; // from SS
 
 		String result = RequesterClass.doGetRequest(reqUrl);
 
@@ -66,8 +66,8 @@ public class Logic {
 		System.out.println("From current: " + sum);
 
 		// FROM HISTORY
-		String reqUrl2 = "http://10.218.223.84:5700/sdelab/person/"
-				+ person + "/" + measureType;
+		String reqUrl2 = "https://intense-mesa-6521.herokuapp.com/sdelab/person/"
+				+ person + "/" + measureType; //from SS
 
 		String result2 = RequesterClass.doGetRequest(reqUrl2);
 		JSONArray hisArray = new JSONArray(result2);

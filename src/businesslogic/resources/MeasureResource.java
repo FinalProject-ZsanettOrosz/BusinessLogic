@@ -33,7 +33,7 @@ public class MeasureResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getMeasureTypees()
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/measureTypes"; 
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/measureTypes"; //from SS
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
 

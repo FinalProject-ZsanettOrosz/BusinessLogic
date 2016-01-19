@@ -40,7 +40,7 @@ public class GoalsResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getPersonAchivedGoals(@PathParam("personID") int id)
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/goals/person/" + id; 
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/goals/person/" + id; //from SS
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
 

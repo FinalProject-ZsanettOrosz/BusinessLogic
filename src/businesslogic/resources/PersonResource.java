@@ -58,7 +58,7 @@ public class PersonResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getPersons() throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/person";
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/person";// from SS
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
 
@@ -70,7 +70,7 @@ public class PersonResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getPersonById(@PathParam("personID") int id)
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/person/"
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/person/"
 				+ id;
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
@@ -84,7 +84,7 @@ public class PersonResource {
 	public Response getPersonHistory(@PathParam("personID") int id,
 			@PathParam("measureType") String measureType)
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/person/"
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/person/"
 				+ id + "/" + measureType;
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
@@ -98,7 +98,7 @@ public class PersonResource {
 	public Response getPersonHistoryById(@PathParam("personID") int id,
 			@PathParam("measureType") String measureType, @PathParam("mid") int mid)
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/person/"
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/person/"
 				+ id + "/" + measureType + "/" + mid;
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
@@ -113,7 +113,7 @@ public class PersonResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getPicture()
 			throws ClientProtocolException, IOException {
-		String externalService = "http://10.218.223.84:5700/sdelab/goals/pic"; 
+		String externalService = "https://intense-mesa-6521.herokuapp.com/sdelab/goals/pic"; 
 		String result = RequesterClass.doGetRequest(externalService);
 		System.out.println(result);
 
@@ -131,7 +131,7 @@ public class PersonResource {
 			String postedValue) throws ClientProtocolException, IOException, ParseException{
 		
 		System.out.println("BL - in POST");
-		String urlToPost = "http://10.218.223.84:5700/sdelab/person/" + personID + "/" + measureType;
+		String urlToPost = "https://intense-mesa-6521.herokuapp.com/sdelab/person/" + personID + "/" + measureType;
 		
 		String result = RequesterClass.doPostRequest(urlToPost, postedValue, "text/plain");
 		
@@ -154,7 +154,7 @@ public class PersonResource {
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			String strToday = df.format(new Date());
 			achivement.put("achivementDate", strToday);
-			String urlToPostAchivement = "http://10.218.223.84:5700/sdelab/goals/person/" + personID;
+			String urlToPostAchivement = "https://intense-mesa-6521.herokuapp.com/sdelab/goals/person/" + personID;
 			System.out.println("We met the goal" + achivement.toString(4));
 			String personAfterAchivement = RequesterClass.doPostRequest(urlToPostAchivement, achivement.toString(), "application/json");
 			System.out.println("refressed person" + personAfterAchivement);
@@ -164,12 +164,29 @@ public class PersonResource {
 		
 		}
 		//Response res = Response.ok(result.toString()).build();
-		String urlToGetUpdatedPerson = "http://10.218.223.84:5700/sdelab/person/" + personID;
+		String urlToGetUpdatedPerson = "https://intense-mesa-6521.herokuapp.com/sdelab/person/" + personID;
 		String updatedWithAchivements = RequesterClass.doGetRequest(urlToGetUpdatedPerson);
 		System.out.println( "Re-asked person" + updatedWithAchivements);
 
 		return Response.ok(updatedWithAchivements).build();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@POST
 	@Path("/{personID}")
