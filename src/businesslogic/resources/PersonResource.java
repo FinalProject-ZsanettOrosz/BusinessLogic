@@ -135,7 +135,7 @@ public class PersonResource {
 		
 		String result = RequesterClass.doPostRequest(urlToPost, postedValue, "text/plain");
 		
-		
+		System.out.println(result);
 		//check logic for achivements 
 		
 		logic = new Logic();
@@ -159,12 +159,15 @@ public class PersonResource {
 			String personAfterAchivement = RequesterClass.doPostRequest(urlToPostAchivement, achivement.toString(), "application/json");
 			System.out.println("refressed person" + personAfterAchivement);
 			//System.out.println(picUrl);
+			
+			
+		
 		}
 		//Response res = Response.ok(result.toString()).build();
-		
 		String urlToGetUpdatedPerson = "http://10.218.223.84:5700/sdelab/person/" + personID;
 		String updatedWithAchivements = RequesterClass.doGetRequest(urlToGetUpdatedPerson);
 		System.out.println( "Re-asked person" + updatedWithAchivements);
+
 		return Response.ok(updatedWithAchivements).build();
 	}
 	

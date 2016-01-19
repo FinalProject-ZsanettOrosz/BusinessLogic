@@ -71,7 +71,7 @@ public class Logic {
 
 		String result2 = RequesterClass.doGetRequest(reqUrl2);
 		JSONArray hisArray = new JSONArray(result2);
-		System.out.println(dateToCheck.toString());
+		//System.out.println(dateToCheck.toString());
 		for (int i = 0; i < hisArray.length(); i++) {
 			JSONObject history = new JSONObject(hisArray.get(i).toString());
 			String strDate = history.getString("created");
